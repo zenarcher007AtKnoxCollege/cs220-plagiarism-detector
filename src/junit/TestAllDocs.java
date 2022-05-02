@@ -14,20 +14,23 @@ class TestAllDocs {
 	
 	static final String DOCS = "docs/alldocs";
 
-	
-	private IPlagiarismDetector detector;
-	    
-    public void makeDetector(int n) throws Exception {
+    public static IPlagiarismDetector makeDetector(int n) throws Exception {
         // n is the size of an n-gram
-        detector = new PlagiarismDetector(n);
+        IPlagiarismDetector detector = new PlagiarismDetector(n);
         detector.readFilesInDirectory(new File(DOCS));
+        return detector;
     }
     
-	@Test
-	void test() throws Exception {
+	public static void main(String[] args) throws Exception {
+		//
+		// TODO you probably want to add more code or more tests
+		// This just gets things started
+		//
+		
+		
 		// how long does it take to create a detector?
 		long start = System.currentTimeMillis();
-		makeDetector(3);
+		IPlagiarismDetector detector = makeDetector(3);
 		long total = System.currentTimeMillis() - start;
 		System.out.printf("It took %.1f seconds to read the documents\n", total/1000.0);
 		
