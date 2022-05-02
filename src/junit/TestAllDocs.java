@@ -1,11 +1,7 @@
 package junit;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.File;
 import java.util.Collection;
-
-import org.junit.jupiter.api.Test;
 
 import plagdetect.IPlagiarismDetector;
 import plagdetect.PlagiarismDetector;
