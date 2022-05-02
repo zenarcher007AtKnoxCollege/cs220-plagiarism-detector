@@ -11,13 +11,13 @@ There is an API (basically, an interface) for you to implement called `IPlagiari
 
 Getting the documents for testing
 ===
-The documents for testing are NOT stored in the Github repo. This is because it is not good to store lots of data on Github. Instead, find the documents on [Google Drive here]().
+The documents for testing are NOT stored in the Github repo. This is because it is not a good practice to store lots of data on Github. Instead, find the documents on [Google Drive here](https://drive.google.com/file/d/10AM2DyjpUpodCfFYzxNS5NIqx1D95eGB/view?usp=sharing).
 
 Download the zipfile, and then extract or unzip it into your Eclipse project. It should look like this:
 
 <img src="pd.png" alt="Eclipse project file structure" style="width:200px;"/>
 
-Your docs folder structure **`must look exactly like this`**. If you have an extra folder, so it's "docs/docs/tinydocs" instead of "docs/tinydocs", then you have to fix it. (This often happens when extracting on Windows.)
+Your docs folder structure **`must look exactly like this`**. If you have an extra folder, so it's "docs/docs/tinydocs" instead of "docs/tinydocs", then you have to fix it by moving folders around. (This often happens when extracting on Windows.)
 
 What to submit
 ===
