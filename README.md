@@ -20,6 +20,7 @@ Some notes on the data format:
     * An easy way to do this is with a `Scanner` and a while loop using the `hasNextLine()` and `nextLine()` methods.
     * Convert each line you've read with the `Scanner` into `String[]` like this: `line.split(" ")` and then you can write for loops to go through the array.
 * If any line has fewer words than the number of n-grams (so a sentence with 2 words when N is 3), just skip it. Real data is messy and we have to make decisions like this all the time; it will be fine.
+* The data files are taken from a Kaggle contest, which is why they are restricted to only Knox students, as I'm not supposed to publicly redistribute them.
 
 The documents for testing are NOT stored in the Github repo. This is because it is not a good practice to store lots of data on Github. Instead, find the documents on [Google Drive here](https://drive.google.com/file/d/10AM2DyjpUpodCfFYzxNS5NIqx1D95eGB/view?usp=sharing).
 
@@ -38,5 +39,5 @@ What to submit
     * Which documents, if any, seem like they were plagiarized?
     * What values of N did you try, and what effects did you observe from these different values?
     * What was a good threshold for number of n-grams in common for two documents to seem suspicious?
-        * Remember, the documents vary in length, so having a fixed number of n-grams in common does not automatically mean there was plagiarism! It just means the documents seem suspicious and require a human to look at them.
+        * Remember, the documents vary in length, so having a certain number of n-grams in common does not automatically mean there was plagiarism! It just means the documents seem suspicious and require a human to look at them.
     * What kind of runtimes are you looking at to process all 1800 documents? It takes about a minute on my machine.
