@@ -9,9 +9,17 @@ The code is [on github here](https://github.com/jspacco/cs220-plagiarism-detecto
 
 There is an API (basically, an interface) for you to implement called `IPlagiarismDetector`. Your code goes in `PlagiarismDetector`.
 
-Getting the documents for testing
+Documents
 ===
 There are 1,800 documents, ranging from a few dozen words to over 1,000 words, with about 418 words the average length of a document.
+
+Some notes on the data format:
+* The documents are split into sentences, with one sentence per line.
+* Treat punctuation as a separate word. This is a common approach when processing text.
+* Process the sentences one at a time. This means that n-grams should not "span" a line. So once you get to the end of a line of text, stop processing, read the next line, and start again.
+    * An easy way to do this is with a `Scanner` and a while loop using the `hasNextLine()` and `nextLine()` methods.
+    * Convert each line you've read with the `Scanner` into `String[]` like this: `line.split(" ")` and then you can write for loops to go through the array.
+* If any line has fewer words than the number of n-grams (so a sentence with 2 words when N is 3), just skip it. Real data is messy and we have to make decisions like this all the time; it will be fine.
 
 The documents for testing are NOT stored in the Github repo. This is because it is not a good practice to store lots of data on Github. Instead, find the documents on [Google Drive here](https://drive.google.com/file/d/10AM2DyjpUpodCfFYzxNS5NIqx1D95eGB/view?usp=sharing).
 
