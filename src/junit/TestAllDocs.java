@@ -1,7 +1,10 @@
 package junit;
 
 import java.io.File;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import plagdetect.IPlagiarismDetector;
 import plagdetect.PlagiarismDetector;
@@ -9,6 +12,7 @@ import plagdetect.PlagiarismDetector;
 class TestAllDocs {
 	
 	static final String DOCS = "docs/alldocs";
+	//static final String DOCS = "docs/smallDocs";
 
     public static IPlagiarismDetector makeDetector(int n) throws Exception {
         // n is the size of an n-gram
@@ -22,7 +26,7 @@ class TestAllDocs {
 		// TODO you probably want to add more code or more tests
 		// This just gets things started
 		//
-		
+    
 		
 		// how long does it take to create a detector?
 		long start = System.currentTimeMillis();
@@ -37,12 +41,29 @@ class TestAllDocs {
 		// The average essay is less than 500 words long.
 		// What is a good number to put here? Try some different values to
 		// figure that out!
-		Collection<String> pairs = detector.getSuspiciousPairs(500);
-		for (String pair : pairs) {
+		System.out.println("\nSuspicious pairs:");
+		Collection<String> pairs = detector.getSuspiciousPairs(15);
+		
+		total = System.currentTimeMillis() - start;
+    System.out.printf("It took %.1f seconds to check for suspicious pairs in the documents\n", total/1000.0);
+		
+    
+    // Print results, sorted by their number of matches...
+    System.out.println("\nSorting results...");
+		// Sort results by their number of matches
+	  StringByNumber wordStrings[] = new StringByNumber[pairs.size()];
+	  int i1 = 0;
+	  for(String s : pairs) {
+	    StringByNumber w = new StringByNumber(s, 2);
+	    wordStrings[i1] = w;
+	    ++i1;
+	  }
+	  Arrays.sort(wordStrings); // This will sort them by the 3rd word: the number of matches.
+		
+	  for (Object pair : wordStrings) {
 			System.out.println(pair);
 		}
-		total = System.currentTimeMillis() - start;
-		System.out.printf("It took %.1f seconds to check for suspicious pairs in the documents\n", total/1000.0);
+		
 	}
 	
 	

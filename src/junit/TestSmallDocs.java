@@ -19,6 +19,7 @@ public class TestSmallDocs
     private void makeDetector(int n) throws Exception {
         detector = new PlagiarismDetector(n);
         detector.readFilesInDirectory(new File(SMALLDOCS));
+        System.out.println("\nTesting nGram pairs of " + n);
     }
 
     @Test
